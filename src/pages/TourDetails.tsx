@@ -22,7 +22,7 @@ const tourData = {
   id: "paris",
   name: "Париж: Город любви и искусства",
   location: "Франция",
-  images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+  images: ["/4x/paris.jpg", "/4x/paris-2.jpg", "/4x/paris-3.jpg"],
   description: "Париж – один из самых посещаемых городов мира, настоящая столица романтики, искусства и гастрономии. Этот город очаровывает своей элегантностью, богатой историей и уникальной атмосферой, которую невозможно найти больше нигде.",
   price: 65000,
   duration: 7,
@@ -151,6 +151,10 @@ const TourDetails = () => {
                       src={image} 
                       alt={`${tour.name} - изображение ${index + 1}`}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "/placeholder.svg";
+                      }}
                     />
                   </div>
                 ))}

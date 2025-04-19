@@ -7,7 +7,15 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-r from-travel-blue to-travel-teal text-white pt-16 pb-24 overflow-hidden">
+    <section 
+      className="relative pt-16 pb-24 overflow-hidden" 
+      style={{
+        backgroundImage: "linear-gradient(to right, rgba(0, 114, 206, 0.85), rgba(0, 178, 176, 0.85)), url('/4x/hero-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        color: "white"
+      }}
+    >
       {/* Декоративный фон */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute -right-40 -top-40 w-96 h-96 rounded-full bg-white/20 blur-3xl"></div>

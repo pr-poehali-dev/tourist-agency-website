@@ -31,7 +31,7 @@ const allDestinations: Destination[] = [
     id: "paris",
     name: "Париж",
     location: "Франция",
-    image: "/placeholder.svg",
+    image: "/4x/paris.jpg",
     description: "Город любви и искусства с множеством достопримечательностей. Посетите Эйфелеву башню, Лувр и прогуляйтесь по Елисейским полям.",
     price: 65000,
     category: "excursion",
@@ -44,7 +44,7 @@ const allDestinations: Destination[] = [
     id: "bali",
     name: "Бали",
     location: "Индонезия",
-    image: "/placeholder.svg",
+    image: "/4x/bali.jpg",
     description: "Тропический рай с великолепными пляжами и богатой культурой. Исследуйте храмы, рисовые террасы и потрясающие пляжи.",
     price: 85000,
     category: "beach",
@@ -57,7 +57,7 @@ const allDestinations: Destination[] = [
     id: "santorini",
     name: "Санторини",
     location: "Греция",
-    image: "/placeholder.svg",
+    image: "/4x/santorini.jpg",
     description: "Живописный остров с белоснежными домами и голубыми куполами. Насладитесь захватывающими видами и местной кухней.",
     price: 75000,
     category: "beach",
@@ -70,7 +70,7 @@ const allDestinations: Destination[] = [
     id: "tokyo",
     name: "Токио",
     location: "Япония",
-    image: "/placeholder.svg",
+    image: "/4x/tokyo.jpg",
     description: "Удивительное сочетание традиций и современности. Познакомьтесь с японской культурой, технологиями и кухней.",
     price: 95000,
     category: "excursion",
@@ -83,7 +83,7 @@ const allDestinations: Destination[] = [
     id: "barcelona",
     name: "Барселона",
     location: "Испания",
-    image: "/placeholder.svg",
+    image: "/4x/barcelona.jpg",
     description: "Яркий город с уникальной архитектурой Гауди, отличными пляжами и вкусной кухней.",
     price: 55000,
     category: "excursion",
@@ -96,7 +96,7 @@ const allDestinations: Destination[] = [
     id: "maldives",
     name: "Мальдивы",
     location: "Мальдивская Республика",
-    image: "/placeholder.svg",
+    image: "/4x/maldives.jpg",
     description: "Роскошный отдых на белоснежных пляжах с кристально чистой водой. Идеальное место для релаксации.",
     price: 120000,
     category: "beach",
@@ -272,6 +272,10 @@ const Destinations = () => {
                         src={destination.image}
                         alt={destination.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/placeholder.svg";
+                        }}
                       />
                     </div>
                     <CardContent className="flex-1 p-6 space-y-4">
@@ -294,7 +298,7 @@ const Destinations = () => {
                       
                       <div className="flex flex-wrap gap-2">
                         {destination.features.slice(0, 3).map((feature, index) => (
-                          <span key={index} className="bg-secondary px-2 py-1 rounded-md text-xs">
+                          <span key={index} className="bg-secondary/10 text-secondary-foreground px-2 py-1 rounded-md text-xs">
                             {feature}
                           </span>
                         ))}

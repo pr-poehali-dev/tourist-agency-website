@@ -19,7 +19,7 @@ const popularDestinations: Destination[] = [
     id: "paris",
     name: "Париж",
     location: "Франция",
-    image: "/placeholder.svg",
+    image: "/4x/paris.jpg",
     description: "Город любви и искусства с множеством достопримечательностей",
     price: "от 65 000 ₽",
   },
@@ -27,7 +27,7 @@ const popularDestinations: Destination[] = [
     id: "bali",
     name: "Бали",
     location: "Индонезия",
-    image: "/placeholder.svg",
+    image: "/4x/bali.jpg",
     description: "Тропический рай с великолепными пляжами и богатой культурой",
     price: "от 85 000 ₽",
   },
@@ -35,7 +35,7 @@ const popularDestinations: Destination[] = [
     id: "santorini",
     name: "Санторини",
     location: "Греция",
-    image: "/placeholder.svg",
+    image: "/4x/santorini.jpg",
     description: "Живописный остров с белоснежными домами и голубыми куполами",
     price: "от 75 000 ₽",
   },
@@ -60,6 +60,10 @@ const FeaturedDestinations = () => {
                   src={destination.image}
                   alt={destination.name}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "/placeholder.svg";
+                  }}
                 />
               </div>
               <CardContent className="flex-1 p-6">
